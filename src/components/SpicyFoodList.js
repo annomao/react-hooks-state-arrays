@@ -11,11 +11,23 @@ function SpicyFoodList() {
     setFoods(newFoodArray)
   }
   
+  // function handleLiClick(id){
+  //   const filteredArray = foods.filter((objectValue)=>{
+  //     return objectValue.id !== id
+  //   })
+  //   setFoods(filteredArray)
+  // }
+
   function handleLiClick(id){
-    const filteredArray = foods.filter((objectValue)=>{
-      return objectValue.id !== id
+    const updatedArray = foods.map((food)=>{
+      if(food.id === id){
+        food.heatLevel += 1
+        return food
+      }else{
+        return food
+      }
     })
-    setFoods(filteredArray)
+    setFoods(updatedArray)
   }
 
   const foodList = foods.map((food) => (
